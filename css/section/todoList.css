@@ -4,4 +4,55 @@
   background-size: 1200px 850px;
   background-position: center top;
   height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.todo-list__section {
+  width: 1140px;
+  height: 540px;
+  margin-top: 260px;
+  display: flex;
+}
+.todo-list__column {
+  width: 240px;
+  height: 470px;
+  padding: 10px;
+}
+.todo-list__column:nth-child(1) {
+  margin-left: 18px;
+}
+.todo-list__column:nth-child(2) {
+  margin-left: 52px;
+}
+.todo-list__column:nth-child(3) {
+  margin-left: 52px;
+}
+.todo-list__column:nth-child(4) {
+  margin-left: 43px;
+}
+.todo-list__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.todo-list__items {
+  padding-top: 20px;
+}
+
+.todo-list__items div {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.todo-list__item-new {
+  opacity: 0.6;
+}
+.todo-list__item-new:hover {
+  opacity: 1;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
