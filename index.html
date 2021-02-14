@@ -53,6 +53,7 @@
     <div class="modal display-none">
       <div class="bg"></div>
       <div class="modalBox">
+        <h2>Category</h2>
         <form class="todo-create">
           <label for="todo-title"> Title </label>
           <input required type="text" id="todo-title" spellcheck="false" />
@@ -63,15 +64,21 @@
           <label for="todo-priority"> Priority </label>
           <div id="todo-priority">
             <label for="high">
-              <input type="radio" id="high" name="priority" checked />
+              <input
+                type="radio"
+                id="high"
+                name="priority"
+                value="High"
+                checked
+              />
               High
             </label>
             <label for="medium">
-              <input type="radio" id="medium" name="priority" />
+              <input type="radio" id="medium" name="priority" value="Medium" />
               Medium
             </label>
             <label for="low">
-              <input type="radio" id="low" name="priority" />
+              <input type="radio" id="low" name="priority" value="Low" />
               Low
             </label>
           </div>
@@ -83,7 +90,7 @@
             spellcheck="false"
           ></textarea>
 
-          <button id="save-button">Save</button>
+          <button type="submit" id="save-button">Save</button>
         </form>
         <button id="delete-button">Delete</button>
       </div>
