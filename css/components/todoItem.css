@@ -25,6 +25,7 @@
   justify-content: space-between;
 }
 .todo-list__item__time i {
+  margin-left: 5px;
   cursor: pointer;
 }
 .todo-list__item__time i:hover {

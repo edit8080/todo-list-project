@@ -54,14 +54,11 @@
 }
 .todo-list__items {
   height: 370px;
-  display: flex;
-  flex-direction: column;
   overflow: auto;
 }
 .todo-list__items > div {
   display: flex;
   flex-direction: column-reverse;
-  flex-grow: 1;
 }
 .todo-list__items::-webkit-scrollbar {
   display: none;
