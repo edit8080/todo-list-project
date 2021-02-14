@@ -1,0 +1,17 @@
+#todo-header {
+  width: 100vw;
+  height: 100px;
+  padding: 25px;
+  box-sizing: border-box;
+  background-color: #586878;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+#todo-header i {
+  margin-right: 12px;
+}
+#todo-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+}

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import 'reset.css';
+
+/* section */
+@import 'section/header.css';
+@import 'section/todoList.css';
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  overflow: hidden;
+}
+.display-none {
+  display: none;
+}

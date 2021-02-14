@@ -1,0 +1,7 @@
+.todo-list {
+  background-image: url('../../Todo-background.jpeg');
+  background-repeat: no-repeat;
+  background-size: 1200px 850px;
+  background-position: center top;
+  height: 100%;
+}
