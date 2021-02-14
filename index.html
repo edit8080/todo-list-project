@@ -26,29 +26,6 @@
                 </div>
                 <div class="todo-list__item__time">
                   2021.02.14 12:00:00
-                  <div>
-                    <i class="fas fa-edit"></i>
-                    <i class="far fa-trash-alt"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="todo-list__item">
-                <div class="todo-list__item__title">
-                  <mark>Todo Title</mark>
-                </div>
-                <div class="todo-list__item__time">
-                  2021.02.14 13:00:00
-                  <i class="far fa-trash-alt"></i>
-                </div>
-              </div>
-
-              <div class="todo-list__item">
-                <div class="todo-list__item__title">
-                  <mark>Todo Title</mark>
-                </div>
-                <div class="todo-list__item__time">
-                  2021.02.14 14:00:00
                   <i class="far fa-trash-alt"></i>
                 </div>
               </div>
@@ -73,13 +50,51 @@
       </section>
     </main>
 
+    <div class="modal display-none">
+      <div class="bg"></div>
+      <div class="modalBox">
+        <form class="todo-create">
+          <label for="todo-title"> Title </label>
+          <input required type="text" id="todo-title" spellcheck="false" />
+
+          <label for="todo-date"> Date </label>
+          <input required type="datetime-local" id="todo-date" />
+
+          <label for="todo-priority"> Priority </label>
+          <div id="todo-priority">
+            <label for="high">
+              <input type="radio" id="high" name="priority" checked />
+              High
+            </label>
+            <label for="medium">
+              <input type="radio" id="medium" name="priority" />
+              Medium
+            </label>
+            <label for="low">
+              <input type="radio" id="low" name="priority" />
+              Low
+            </label>
+          </div>
+          <label for="todo-detail"> Detail </label>
+          <textarea
+            id="todo-detail"
+            rows="4"
+            cols="35"
+            spellcheck="false"
+          ></textarea>
+
+          <button id="save-button">Save</button>
+        </form>
+        <button id="delete-button">Delete</button>
+      </div>
+    </div>
+
     <script
       src="https://kit.fontawesome.com/f98b1fd2c4.js"
       crossorigin="anonymous"
     ></script>
 
     <script src="javascript/createItem.js"></script>
-    <script src="javascript/readItem.js"></script>
     <script src="javascript/updateItem.js"></script>
     <script src="javascript/deleteItem.js"></script>
   </body>

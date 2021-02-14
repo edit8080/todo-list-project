@@ -1,0 +1,91 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal .bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modalBox {
+  position: absolute;
+  background-color: #fff;
+  width: 400px;
+  height: 500px;
+  padding: 30px 60px;
+}
+.todo-create {
+  display: flex;
+  flex-direction: column;
+}
+.todo-create > label {
+  font-size: 20px;
+  font-weight: 700;
+}
+#todo-title {
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+#todo-date {
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+#todo-priority {
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+#todo-detail {
+  resize: none;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-family: 'Overlock', 'Nanum Gothic', sans-serif;
+}
+#save-button {
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #00a2ff;
+  cursor: pointer;
+  position: absolute;
+  bottom: 40px;
+  right: 130px;
+}
+#delete-button {
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #f0563b;
+  cursor: pointer;
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+}
