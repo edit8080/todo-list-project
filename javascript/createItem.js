@@ -11,6 +11,32 @@ const ITEM_STORAGE = "itemStorage"
 let idCount = 0;
 let todoItems = [];
 
+// todo : loadItem 을 다른 JS 파일로 설정하여 분할
+
+
+// todo : 카테고리에 맞게 load한 아이템들 배치
+function setItemCategory(todoItems){
+
+} 
+
+
+function loadItem(){
+    idCount = localStorage.getItem(ID_STORAGE);
+    let loadItems = JSON.parse(localStorage.getItem(ITEM_STORAGE));
+
+    if(loadItems !== null){
+        for(const loadItem of loadItems)
+            todoItems.push(loadItem);
+    }
+    setItemCategory(todoItems);
+}
+
+function init(){
+    loadItem();
+}
+init();
+
+
 /* 이벤트 */
  
 // New 버튼 클릭
