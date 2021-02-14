@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Overlock:wght@400;700&display=swap');
 @import 'reset.css';
 
+/* components */
+@import 'components/todoItem.css';
+
 /* section */
 @import 'section/header.css';
 @import 'section/todoList.css';
@@ -15,6 +18,7 @@ body {
   font-size: 16px;
   overflow: hidden;
 }
+
 .display-none {
   display: none;
 }
