@@ -19,33 +19,35 @@
           <div class="todo-list__create-item">+ New</div>
 
           <div class="todo-list__items">
-            <div>
-              <div class="todo-list__item">
-                <div class="todo-list__item__title">
-                  <mark>Todo Title</mark>
-                </div>
-                <div class="todo-list__item__time">
-                  2021.02.14 12:00:00
-                  <i class="far fa-trash-alt"></i>
-                </div>
-              </div>
-            </div>
+            <ul id="no-status"></ul>
           </div>
         </div>
 
         <div class="todo-list__column">
           <div class="todo-list__title">Next Up</div>
           <div class="todo-list__create-item">+ New</div>
+
+          <div class="todo-list__items">
+            <ul id="next-up"></ul>
+          </div>
         </div>
 
         <div class="todo-list__column">
           <div class="todo-list__title">In Progress</div>
           <div class="todo-list__create-item">+ New</div>
+
+          <div class="todo-list__items">
+            <ul id="in-progress"></ul>
+          </div>
         </div>
 
         <div class="todo-list__column">
           <div class="todo-list__title">Completed</div>
           <div class="todo-list__create-item">+ New</div>
+
+          <div class="todo-list__items">
+            <ul id="completed__list"></ul>
+          </div>
         </div>
       </section>
     </main>
@@ -68,17 +70,17 @@
                 type="radio"
                 id="high"
                 name="priority"
-                value="High"
+                value="high"
                 checked
               />
               High
             </label>
             <label for="medium">
-              <input type="radio" id="medium" name="priority" value="Medium" />
+              <input type="radio" id="medium" name="priority" value="medium" />
               Medium
             </label>
             <label for="low">
-              <input type="radio" id="low" name="priority" value="Low" />
+              <input type="radio" id="low" name="priority" value="low" />
               Low
             </label>
           </div>

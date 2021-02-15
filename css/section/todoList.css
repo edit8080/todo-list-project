@@ -56,7 +56,7 @@
   height: 370px;
   overflow: auto;
 }
-.todo-list__items > div {
+.todo-list__items > ul {
   display: flex;
   flex-direction: column-reverse;
 }

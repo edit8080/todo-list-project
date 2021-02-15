@@ -31,3 +31,12 @@
 .todo-list__item__time i:hover {
   color: red;
 }
+.highlight-high {
+  background-color: #ffccd1;
+}
+.highlight-medium {
+  background-color: #fbeacc;
+}
+.highlight-low {
+  background-color: #cce7e1;
+}
