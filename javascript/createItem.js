@@ -8,7 +8,6 @@ const inputForm = document.querySelector(".todo-create");
 const ID_STORAGE = "idCount";
 const ITEM_STORAGE = "itemStorage"
 
-let idCount = 0;
 let todoItems = [];
 
 // todo : loadItem 을 다른 JS 파일로 설정하여 분할
@@ -21,7 +20,6 @@ function setItemCategory(todoItems){
 
 
 function loadItem(){
-    idCount = localStorage.getItem(ID_STORAGE);
     let loadItems = JSON.parse(localStorage.getItem(ITEM_STORAGE));
 
     if(loadItems !== null){
@@ -60,7 +58,7 @@ inputForm.addEventListener("submit",function(event){
     event.preventDefault();
  
     const todoItem = {
-        "id" : `${idCount}`,
+        "id" : `${new Date().getTime()}`,
         "category" : document.querySelector(".modalBox h2").innerText,
         "title" : document.querySelector("#todo-title").value,
         "date" : document.querySelector("#todo-date").value,
@@ -70,9 +68,7 @@ inputForm.addEventListener("submit",function(event){
     
     todoItems.push(todoItem);
 
-    localStorage.setItem(ID_STORAGE,idCount++);
     localStorage.setItem(ITEM_STORAGE, JSON.stringify(todoItems));
-
 
     inputForm.reset();
     modalBox.classList.add("display-none");   
