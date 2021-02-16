@@ -49,13 +49,19 @@
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
 #todo-priority {
-  width: 80%;
+  width: 85%;
   margin-top: 10px;
   margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 18px;
+}
+#todo-priority > label {
+  cursor: pointer;
+}
+#todo-priority mark {
+  padding: 0 5px;
 }
 #todo-detail {
   resize: none;
