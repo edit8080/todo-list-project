@@ -4,6 +4,7 @@ const createButtons = document.querySelectorAll(".todo-list__create-item");
 const modalBox = document.querySelector(".modal");
 const formBackground = document.querySelector(".bg");
 const inputForm = document.querySelector(".todo-create");
+const deleteBtn = modalBox.querySelector("#delete-button");
 
 const ITEM_STORAGE = "itemStorage"
 const columnName = {
@@ -62,9 +63,9 @@ function openModalInput(item, event){
     inputForm.addEventListener("submit", updateItem);
 
     // form의 delete 버튼 클릭
-    const deleteBtn = modalBox.querySelector("#delete-button");
     deleteBtn.addEventListener("click", deleteFromForm);
 }
+// form의 delete 버튼 클릭
 function deleteFromForm(event){
     const itemIndex = todoItems.findIndex((element) => element.id === selectedItemId);
     todoItems.splice(itemIndex,1);
@@ -76,13 +77,11 @@ function deleteFromForm(event){
     inputForm.removeEventListener("submit",updateItem);
     inputForm.addEventListener("submit", createItem);
 
-    const deleteBtn = modalBox.querySelector("#delete-button");
     deleteBtn.removeEventListener("click", deleteFromForm);
 
     inputForm.reset();
     modalBox.classList.add("display-none");    
 }
-
 
 // 지정한 아이템 삭제 
 function deleteItem(event){
@@ -185,6 +184,8 @@ formBackground.addEventListener("click",function(event){
     inputForm.removeEventListener("submit",updateItem);
     inputForm.addEventListener("submit",createItem);
 
+    deleteBtn.removeEventListener("click", deleteFromForm);
+    
     modalBox.classList.add("display-none");    
 });
 
