@@ -14,7 +14,8 @@ const columnName = {
 }
 
 const todoItems = [];
-let updateItemId;
+
+let selectedItemId;
 
 // HTML 수정
 function updateHtmlElement(item){
@@ -28,7 +29,7 @@ function updateHtmlElement(item){
 function updateItem(event){
     event.preventDefault();
 
-    const itemIndex = todoItems.findIndex((element) => element.id === updateItemId);
+    const itemIndex = todoItems.findIndex((element) => element.id === selectedItemId);
 
     todoItems[itemIndex].title = document.querySelector("#todo-title").value;
     todoItems[itemIndex].date = document.querySelector("#todo-date").value;
@@ -45,8 +46,8 @@ function updateItem(event){
     updateHtmlElement(todoItems[itemIndex]);
 }
 // 모달 창 open (기존 값 유지)
-function updateModalInput(item, event){
-    updateItemId = item.id;
+function openModalInput(item, event){
+    selectedItemId = item.id;
 
     document.querySelector(".modalBox h2").innerText = item.category;
     modalBox.classList.remove("display-none");
@@ -56,10 +57,33 @@ function updateModalInput(item, event){
     modalBox.querySelector(`#${item.priority}`).checked = true;
     modalBox.querySelector("#todo-detail").value = item.detail;
     
-    // 기존 item의 save 버튼 클릭 -> update
+    // 기존 item form의 save 버튼 클릭 -> update
     inputForm.removeEventListener("submit",createItem);
     inputForm.addEventListener("submit", updateItem);
+
+    // form의 delete 버튼 클릭
+    const deleteBtn = modalBox.querySelector("#delete-button");
+    deleteBtn.addEventListener("click", deleteFromForm);
 }
+function deleteFromForm(event){
+    const itemIndex = todoItems.findIndex((element) => element.id === selectedItemId);
+    todoItems.splice(itemIndex,1);
+
+    localStorage.setItem(ITEM_STORAGE,JSON.stringify(todoItems));
+
+    document.getElementById(`${selectedItemId}`).remove();
+
+    inputForm.removeEventListener("submit",updateItem);
+    inputForm.addEventListener("submit", createItem);
+
+    const deleteBtn = modalBox.querySelector("#delete-button");
+    deleteBtn.removeEventListener("click", deleteFromForm);
+
+    inputForm.reset();
+    modalBox.classList.add("display-none");    
+}
+
+
 // 지정한 아이템 삭제 
 function deleteItem(event){
     event.stopPropagation();
@@ -94,7 +118,7 @@ function createHtmlElement(item){
     itemElements.appendChild(itemElement);  
 
     // 수정 이벤트
-    itemElement.addEventListener("click",updateModalInput.bind(event, item));
+    itemElement.addEventListener("click",openModalInput.bind(event, item));
     
     // 삭제 이벤트
     const deleteIcon = itemElement.querySelector("i");
@@ -156,6 +180,11 @@ for(const button of createButtons){
 // Modal 창 배경 클릭 -> (모달 창 닫기)
 formBackground.addEventListener("click",function(event){
     inputForm.reset();
+
+    inputForm.removeEventListener("submit",createItem); 
+    inputForm.removeEventListener("submit",updateItem);
+    inputForm.addEventListener("submit",createItem);
+
     modalBox.classList.add("display-none");    
 });
 
