@@ -10,34 +10,38 @@ const columnName = {
     "No Status":"no-status",
     "Next Up":"next-up",
     "In Progress":"in-progress",
-    "completed":"completed"
+    "Completed":"completed"
 }
 
 const todoItems = [];
 
-// HTML 요소 삭제
-function deleteHtmlElement(item){
+// 지정한 아이템 삭제 
+function deleteItem(event){
+    const itemElement = event.target.parentNode.parentNode;
 
+    // localStorage 삭제
+    const itemIndex = todoItems.findIndex((element) => element.id === itemElement.id);
+    todoItems.splice(itemIndex,1);
+
+    localStorage.setItem(ITEM_STORAGE,JSON.stringify(todoItems));
+
+    // HTML 요소 삭제
+    itemElement.remove();
 }
-
-// 삭제 
-function deleteItem(){
-
-}
-
-
 
 // HTML 요소 생성 (카테고리에 맞게 아이템을 배치)
 function createHtmlElement(item){
     const itemElements = document.querySelector(`#${columnName[item.category]}`);
     const itemElement = document.createElement("li");
+
     itemElement.classList.add("todo-list__item");
+    itemElement.id = `${item.id}`;
     itemElement.innerHTML = `         
             <div class="todo-list__item__title">
                 <mark class="highlight-${item.priority}">${item.title}</mark>
             </div>
             <div class="todo-list__item__time">
-                ${item.date}
+                ${item.date.replace("T"," ")}
             <i class="far fa-trash-alt"></i>
             </div>`
      
@@ -48,6 +52,7 @@ function createHtmlElement(item){
     itemElements.appendChild(itemElement);  
 } 
 
+// 목록 아이템 생성한 후 localStorage에 저장
 function createItem(event){
     event.preventDefault();
 
