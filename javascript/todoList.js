@@ -14,9 +14,55 @@ const columnName = {
 }
 
 const todoItems = [];
+let updateItemId;
 
+// HTML 수정
+function updateHtmlElement(item){
+    const updateHtml = document.getElementById(`${item.id}`);
+
+    updateHtml.querySelector("mark").innerText = item.title;
+    updateHtml.querySelector("mark").className = `highlight-${item.priority}`;
+    updateHtml.querySelector(".todo-list__item__time > span").textContent = `${item.date.replace("T"," ")}`;
+}
+// 수정된 내용을 localStorage에 반영
+function updateItem(event){
+    event.preventDefault();
+
+    const itemIndex = todoItems.findIndex((element) => element.id === updateItemId);
+
+    todoItems[itemIndex].title = document.querySelector("#todo-title").value;
+    todoItems[itemIndex].date = document.querySelector("#todo-date").value;
+    todoItems[itemIndex].priority = document.querySelector("#todo-priority input[type='radio']:checked").value;
+    todoItems[itemIndex].detail = document.querySelector("#todo-detail").value;
+
+    localStorage.setItem(ITEM_STORAGE, JSON.stringify(todoItems));
+    inputForm.reset();
+    
+    modalBox.classList.add("display-none");    
+    inputForm.removeEventListener("submit",updateItem);
+    inputForm.addEventListener("submit", createItem);
+
+    updateHtmlElement(todoItems[itemIndex]);
+}
+// 모달 창 open (기존 값 유지)
+function updateModalInput(item, event){
+    updateItemId = item.id;
+
+    document.querySelector(".modalBox h2").innerText = item.category;
+    modalBox.classList.remove("display-none");
+
+    modalBox.querySelector("#todo-title").value = item.title;
+    modalBox.querySelector("#todo-date").value = item.date;
+    modalBox.querySelector(`#${item.priority}`).checked = true;
+    modalBox.querySelector("#todo-detail").value = item.detail;
+    
+    // 기존 item의 save 버튼 클릭 -> update
+    inputForm.removeEventListener("submit",createItem);
+    inputForm.addEventListener("submit", updateItem);
+}
 // 지정한 아이템 삭제 
 function deleteItem(event){
+    event.stopPropagation();
     const itemElement = event.target.parentNode.parentNode;
 
     // localStorage 삭제
@@ -41,15 +87,18 @@ function createHtmlElement(item){
                 <mark class="highlight-${item.priority}">${item.title}</mark>
             </div>
             <div class="todo-list__item__time">
-                ${item.date.replace("T"," ")}
-            <i class="far fa-trash-alt"></i>
+                <span>${item.date.replace("T"," ")}</span>
+                <i class="far fa-trash-alt"></i>
             </div>`
-     
-    // todo : 수정, 삭제 이벤트 추가
-    const deleteIcon = itemElement.querySelector("i");
-    deleteIcon.addEventListener("click", deleteItem);
 
     itemElements.appendChild(itemElement);  
+
+    // 수정 이벤트
+    itemElement.addEventListener("click",updateModalInput.bind(event, item));
+    
+    // 삭제 이벤트
+    const deleteIcon = itemElement.querySelector("i");
+    deleteIcon.addEventListener("click", deleteItem);
 } 
 
 // 목록 아이템 생성한 후 localStorage에 저장
@@ -70,6 +119,7 @@ function createItem(event){
     createHtmlElement(todoItem);
 
     inputForm.reset();
+    
     modalBox.classList.add("display-none");   
 }
 
@@ -109,5 +159,5 @@ formBackground.addEventListener("click",function(event){
     modalBox.classList.add("display-none");    
 });
 
-// save 버튼 클릭(submit) -> localStorage 저장
+// save 버튼 최초 클릭 -> create
 inputForm.addEventListener("submit",createItem);
