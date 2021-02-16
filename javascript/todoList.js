@@ -13,11 +13,22 @@ const columnName = {
     "completed":"completed"
 }
 
-let todoItems = [];
+const todoItems = [];
+
+// HTML 요소 삭제
+function deleteHtmlElement(item){
+
+}
+
+// 삭제 
+function deleteItem(){
+
+}
 
 
-// 카테고리에 맞게 아이템을 배치 (HTML)
-function setCategoryItem(item){
+
+// HTML 요소 생성 (카테고리에 맞게 아이템을 배치)
+function createHtmlElement(item){
     const itemElements = document.querySelector(`#${columnName[item.category]}`);
     const itemElement = document.createElement("li");
     itemElement.classList.add("todo-list__item");
@@ -29,49 +40,15 @@ function setCategoryItem(item){
                 ${item.date}
             <i class="far fa-trash-alt"></i>
             </div>`
-    itemElements.appendChild(itemElement);   
-
+     
     // todo : 수정, 삭제 이벤트 추가
+    const deleteIcon = itemElement.querySelector("i");
+    deleteIcon.addEventListener("click", deleteItem);
+
+    itemElements.appendChild(itemElement);  
 } 
 
-
-function loadItem(){
-    let loadItems = JSON.parse(localStorage.getItem(ITEM_STORAGE));
-
-    if(loadItems !== null){
-        for(const loadItem of loadItems){
-            todoItems.push(loadItem);
-            setCategoryItem(loadItem);
-        }   
-    }
-}
-
-function init(){
-    loadItem();
-}
-init();
-
-
-/* 생성 이벤트 */
- 
-// New 버튼 클릭
-for(const button of createButtons){
-    button.addEventListener('click', function(event){
-        const category = button.previousSibling.previousSibling.innerText;
-        
-        document.querySelector(".modalBox h2").innerText = category;
-        modalBox.classList.remove("display-none");
-    });
-};
-
-// Modal 창 배경 클릭
-formBackground.addEventListener("click",function(event){
-    inputForm.reset();
-    modalBox.classList.add("display-none");    
-});
-
-// save 버튼 클릭(submit)
-inputForm.addEventListener("submit",function(event){  
+function createItem(event){
     event.preventDefault();
 
     const todoItem = {
@@ -85,8 +62,47 @@ inputForm.addEventListener("submit",function(event){
     
     todoItems.push(todoItem);
     localStorage.setItem(ITEM_STORAGE, JSON.stringify(todoItems));
-    setCategoryItem(todoItem);
+    createHtmlElement(todoItem);
 
     inputForm.reset();
     modalBox.classList.add("display-none");   
+}
+
+// localStorage 로드
+function loadItem(){
+    let loadItems = JSON.parse(localStorage.getItem(ITEM_STORAGE));
+
+    if(loadItems !== null){
+        for(const loadItem of loadItems){
+            todoItems.push(loadItem);
+            createHtmlElement(loadItem);
+        }   
+    }
+}
+
+function init(){
+    loadItem();
+}
+init();
+
+
+/* 생성 이벤트 */
+ 
+// New 버튼 클릭 -> (모달 창 호출)
+for(const button of createButtons){
+    button.addEventListener('click', function(event){
+        const category = button.previousSibling.previousSibling.innerText;
+        
+        document.querySelector(".modalBox h2").innerText = category;
+        modalBox.classList.remove("display-none");
+    });
+};
+
+// Modal 창 배경 클릭 -> (모달 창 닫기)
+formBackground.addEventListener("click",function(event){
+    inputForm.reset();
+    modalBox.classList.add("display-none");    
 });
+
+// save 버튼 클릭(submit) -> localStorage 저장
+inputForm.addEventListener("submit",createItem);
