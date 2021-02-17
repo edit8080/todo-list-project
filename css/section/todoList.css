@@ -13,6 +13,7 @@
   height: 540px;
   margin-top: 260px;
   display: flex;
+  flex-shrink: 0;
 }
 .todo-list__column {
   width: 240px;
@@ -27,7 +28,7 @@
   margin-left: 52px;
 }
 .todo-list__column:nth-child(3) {
-  margin-left: 52px;
+  margin-left: 50px;
 }
 .todo-list__column:nth-child(4) {
   margin-left: 43px;
