@@ -13,6 +13,13 @@ const deleteBtn = modalBox.querySelector("#delete-button");
 
 export const todoItems = [];
 
+const columnName = {
+    "no-status":"No Status",
+    "next-up":"Next Up",
+    "in-progress":"In Progress",
+    "completed":"Completed"
+}
+
 function init(){
     loadItem();
 }
@@ -23,9 +30,9 @@ init();
 // New 버튼 클릭 -> (모달 창 호출)
 for(const button of createButtons){
     button.addEventListener('click', function(event){
-        const category = button.previousSibling.previousSibling.innerText;
+        const category = button.parentNode.id;
         
-        document.querySelector(".modalBox h2").innerText = category;
+        document.querySelector(".modalBox h2").innerText = columnName[category];
         modalBox.classList.remove("display-none");
     });
 };

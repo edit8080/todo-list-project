@@ -18,7 +18,7 @@ const columnName = {
 
 // HTML 요소 생성 (카테고리에 맞게 아이템을 배치)
 export function createHtmlElement(item){
-    const itemElements = document.querySelector(`#${columnName[item.category]}`);
+    const itemElements = document.querySelector(`#${columnName[item.category]} ul`);
     const itemElement = document.createElement("li");
 
     itemElement.classList.add("todo-list__item");

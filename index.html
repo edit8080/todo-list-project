@@ -8,52 +8,59 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!--헤더부-->
     <header id="todo-header">
       <h1><i class="fas fa-check"></i>TODO List</h1>
 
       <div class="js-clock"></div>
     </header>
 
+    <!--todo-List-->
     <main class="todo-list">
       <section class="todo-list__section">
-        <div class="todo-list__column">
+        <div class="todo-list__column" id="no-status">
           <div class="todo-list__title">No Status</div>
+          <i class="fas fa-caret-down fa-lg menu-icon"></i>
           <div class="todo-list__create-item">+ New</div>
 
           <div class="todo-list__items">
-            <ul id="no-status"></ul>
+            <ul></ul>
           </div>
         </div>
 
-        <div class="todo-list__column">
+        <div class="todo-list__column" id="next-up">
           <div class="todo-list__title">Next Up</div>
+          <i class="fas fa-caret-down fa-lg menu-icon"></i>
           <div class="todo-list__create-item">+ New</div>
 
           <div class="todo-list__items">
-            <ul id="next-up"></ul>
+            <ul></ul>
           </div>
         </div>
 
-        <div class="todo-list__column">
+        <div class="todo-list__column" id="in-progress">
           <div class="todo-list__title">In Progress</div>
+          <i class="fas fa-caret-down fa-lg menu-icon"></i>
           <div class="todo-list__create-item">+ New</div>
 
           <div class="todo-list__items">
-            <ul id="in-progress"></ul>
+            <ul></ul>
           </div>
         </div>
 
-        <div class="todo-list__column">
+        <div class="todo-list__column" id="completed">
           <div class="todo-list__title">Completed</div>
+          <i class="fas fa-caret-down fa-lg menu-icon"></i>
           <div class="todo-list__create-item">+ New</div>
 
           <div class="todo-list__items">
-            <ul id="completed"></ul>
+            <ul></ul>
           </div>
         </div>
       </section>
     </main>
 
+    <!--모달 창-->
     <div class="modal display-none">
       <div class="bg"></div>
       <div class="modalBox">
@@ -107,5 +114,6 @@
 
     <script src="javascript/clock.js"></script>
     <script type="module" src="javascript/todoList.js"></script>
+    <script type="module" src="javascript/sortItem.js"></script>
   </body>
 </html>
