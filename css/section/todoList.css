@@ -1,11 +1,20 @@
+@keyframes todoListAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .todo-list {
-  background-image: url('../../Todo-background.jpeg');
   background-repeat: no-repeat;
   background-size: 1200px 850px;
   background-position: center top;
   height: 100%;
   display: flex;
   justify-content: center;
+  animation: todoListAnimation 1s ease-in-out;
 }
 .todo-list__section {
   width: 1160px;
@@ -21,7 +30,6 @@
   padding: 10px;
   position: relative;
 }
-
 .todo-list__column:nth-child(1) {
   margin-left: 18px;
 }
@@ -29,7 +37,7 @@
   margin-left: 52px;
 }
 .todo-list__column:nth-child(3) {
-  margin-left: 50px;
+  margin-left: 52px;
 }
 .todo-list__column:nth-child(4) {
   margin-left: 43px;
@@ -56,7 +64,7 @@
   cursor: pointer;
 }
 .todo-list__items {
-  height: 370px;
+  height: 440px;
   overflow: auto;
 }
 .todo-list__items > ul {

@@ -1,5 +1,6 @@
 #todo-header {
   width: 100%;
+  min-width: 800px;
   height: 100px;
   padding: 25px 40px;
   box-sizing: border-box;
@@ -8,15 +9,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 600;
 }
 #todo-header i {
   margin-right: 12px;
 }
 #todo-header h1 {
   font-size: 32px;
-  font-weight: 600;
+}
+#todo-header .js-username input {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+#todo-header .js-username input:focus {
+  outline: none;
+}
+#todo-header .js-username input::placeholder {
+  color: white;
+  opacity: 0.4;
+}
+#todo-header .js-greetings {
+  font-size: 24px;
+}
+#todo-header > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 #todo-header .js-clock {
   font-size: 24px;
-  font-weight: 600;
+  margin-bottom: 5px;
+}
+#todo-header .weather {
+  display: flex;
+  align-items: center;
+}
+#todo-header .weather-icon img {
+  width: 35px;
+  height: 35px;
+}
+#todo-header .js-weather {
+  font-size: 20px;
 }

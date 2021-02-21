@@ -11,8 +11,18 @@
     <!--헤더부-->
     <header id="todo-header">
       <h1><i class="fas fa-check"></i>TODO List</h1>
+      <form class="js-username display-none">
+        <input type="text" placeholder="Input Your Name" class="user-name" />
+      </form>
+      <div class="js-greetings display-none"></div>
 
-      <div class="js-clock"></div>
+      <div>
+        <div class="js-clock"></div>
+        <div class="weather">
+          <div class="weather-icon"></div>
+          <div class="js-weather"></div>
+        </div>
+      </div>
     </header>
 
     <!--todo-List-->
@@ -112,8 +122,11 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="javascript/greeting.js"></script>
     <script src="javascript/clock.js"></script>
+    <script src="javascript/weather.js"></script>
     <script type="module" src="javascript/todoList.js"></script>
     <script type="module" src="javascript/sortItem.js"></script>
+    <script src="javascript/bg.js"></script>
   </body>
 </html>
