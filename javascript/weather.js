@@ -1,6 +1,7 @@
 "use strict";
 
 const weather = document.querySelector(".js-weather");
+const weatherIcon = document.querySelector(".weather-icon");
 
 const API_KEY = "31a06584c3da29410c35f000436236c6";
 const COORDS = "coords";
@@ -16,7 +17,9 @@ function getWeather(lat, lng) {
     .then(function (json) {
       const temperature = json.main.temp;
       const place = json.name;
-      console.log(json.weather[0].main);
+      const icon = json.weather[0].icon;
+
+      weatherIcon.innerHTML = `<img src="icons/${icon}.png" />`;
       weather.innerText = `${temperature} ℃ @ ${place}`;
     });
 }
