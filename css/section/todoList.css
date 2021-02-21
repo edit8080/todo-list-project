@@ -1,5 +1,5 @@
 .todo-list {
-  background-image: url('../../Todo-background.jpeg');
+  /*background-image: url('../../Todo-background 2.jpeg');*/
   background-repeat: no-repeat;
   background-size: 1200px 850px;
   background-position: center top;
@@ -55,7 +55,7 @@
   cursor: pointer;
 }
 .todo-list__items {
-  height: 370px;
+  height: 440px;
   overflow: auto;
 }
 .todo-list__items > ul {
