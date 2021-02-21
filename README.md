@@ -1,12 +1,12 @@
 # Todo List Project
 
-![image](https://user-images.githubusercontent.com/30149272/108349923-ea4a6580-7226-11eb-89ea-ac7baa2ae143.png)
+![image](https://user-images.githubusercontent.com/30149272/108621922-06dddc00-7479-11eb-8680-58eaf9ab2bc9.png)
 
 Vanilla JS를 사용하여 기본적인 CRUD를 수행할 수 있는 Todo List를 구현한 프로젝트입니다.
 
 작성한 todo 항목은 localStorage에 저장됩니다.
 
-<기능>
+<Todo-List 기능>
 - Create : +New 버튼을 클릭하여 todo 항목을 생성합니다.
 - Read : 생성된 todo 항목을 클릭하면 작성한 내용을 볼 수 있습니다.
 - Update : 작성한 내용을 수정한 후 모달 창의 save 버튼을 클릭하면 수정된 내용이 반영됩니다.
