@@ -1,10 +1,12 @@
 # Todo List Project
 
-![image](https://user-images.githubusercontent.com/30149272/108621922-06dddc00-7479-11eb-8680-58eaf9ab2bc9.png)
+![image](https://user-images.githubusercontent.com/30149272/108847745-6d066280-7623-11eb-83ae-e5f2883f7c39.png)
 
 Vanilla JS를 사용하여 기본적인 CRUD를 수행할 수 있는 Todo List를 구현한 프로젝트입니다.
 
-작성한 todo 항목은 localStorage에 저장됩니다.
+- 작성한 todo 항목은 localStorage에 저장됩니다.
+- 사용자 이름 설정, 시계, 날씨 기능을 추가하였습니다.
+- 정렬 기능을 추가하였습니다. (중요도 or 날짜 기준 선택)
 
 <Todo-List 기능>
 - Create : +New 버튼을 클릭하여 todo 항목을 생성합니다.
@@ -14,6 +16,5 @@ Vanilla JS를 사용하여 기본적인 CRUD를 수행할 수 있는 Todo List�
 
 <차후 업데이트 항목>
 - drag & drop 기능을 통해 카테고리를 변경할 수 있는 기능 추가 예정
-- 정렬 기능 추가 예정 (중요도 or 날짜 ...)
 
 https://edit8080.github.io/todo-list-project/
