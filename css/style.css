@@ -4,6 +4,7 @@
 
 /* components */
 @import 'components/todoItem.css';
+@import 'components/sortMenu.css';
 
 /* section */
 @import 'section/header.css';
