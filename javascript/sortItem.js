@@ -75,11 +75,13 @@ function sortCategoryItem(columnNode) {
     createHtmlElement(item);
   });
 }
+
 // 4-2-b. column 초기화
 function initColumn(columnNode) {
   const columnItemList = columnNode.querySelector(".todo-list__items > ul");
   columnItemList.innerText = "";
 }
+
 // 4-2-a. Item 분류
 function classifyItem(columnNode) {
   const category = columnNode.id;

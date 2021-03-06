@@ -4,6 +4,7 @@ import { todoItems } from "./todoList.js";
 import { openModalInput } from "./updateItem.js";
 import { deleteItem } from "./deleteItem.js";
 import { sortColumn } from "./sortItem.js";
+import { itemDrag } from "./dragDrop.js";
 
 const modalBox = document.querySelector(".modal");
 const inputForm = document.querySelector(".todo-create");
@@ -23,6 +24,7 @@ export function createHtmlElement(item) {
   const itemElements = document.querySelector(`#${item.category} ul`);
   const itemElement = document.createElement("li");
 
+  itemElement.setAttribute("draggable", "true");
   itemElement.classList.add("todo-list__item");
   itemElement.id = `${item.id}`;
   itemElement.innerHTML = `         
@@ -36,6 +38,7 @@ export function createHtmlElement(item) {
                 <i class="far fa-trash-alt"></i>
             </div>`;
 
+  itemElement.addEventListener("dragstart", itemDrag);
   itemElements.appendChild(itemElement);
 
   // 수정 이벤트
